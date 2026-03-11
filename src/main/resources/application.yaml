@@ -1,0 +1,26 @@
+spring:
+  main:
+    banner-mode: off
+
+input:
+  journalfile:
+    path: property for input journal file
+
+fusion:
+  wsdlUrl: property for fusion wsdl url
+  user: property for fusion user
+  encodedpwd: property for encoded password
+  uploadtoucm:
+    contenttype: zip
+    documentaccount: fin$/generalLedger$/import$
+  uplaodtoucm:
+    securitygroup: FAFusionImportExport
+  importinterfacetable:
+    jobpackagename: oracle/apps/ess/financials/commonModules/shared/common/interfaceLoader
+    jobdefinitionname: InterfaceLoaderController
+    importprocess: "15"
+  importmainttables:
+    jobpackagename: /oracle/apps/ess/financials/generalLedger/programs/common
+    jobdefinitionname: JournalImportLauncher
+  importmaintables:
+    params: property for import maintenance tables params
