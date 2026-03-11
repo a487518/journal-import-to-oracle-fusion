@@ -1,4 +1,12 @@
-# Oracle Fusion Journals Import
+# Journals data import to Oracle Fusion using Apache Camel.
+Apache Camel service to read the file from local directory or SFTP and load Journals data to Oracle Fusion.
+
+### Steps to upload the journals file to Oracle Fusion
+- Upload the zip file to UCM
+- Submits an ESS interface loader job to load the data to interface tables.
+- On success, it submits the journal Import job
+- Polls journal import job status until completion
+
 ## Build & Run Commands
 
 ```bash
@@ -43,7 +51,7 @@ This is a **file-to-Oracle Fusion Cloud integration** application using Spring B
 | `FileToFusion` | `routes/` | Camel route: file detection → WebServiceClient → archive/error |
 | Generated CXF classes | `target/generated-sources/cxf/` → package `org.advika.erpIntegrationService` | SOAP stubs from `ErpIntegrationService.wsdl` |
 
-### Configuration (`application.properties`)
+### Configuration (`application.yaml`)
 
 | Property | Purpose |
 |----------|---------|
@@ -57,4 +65,3 @@ This is a **file-to-Oracle Fusion Cloud integration** application using Spring B
 ### Logging
 
 Logback rolling file appender writes to `./Logs/log_yyyyMMdd.log` (relative to execution directory), with 30-day retention and 3GB total cap. Log level: INFO.
-
